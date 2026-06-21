@@ -14,11 +14,11 @@ export async function getAllCustomers() {
     return response.json();
 }
 
-/**
- * Create a new customer in the backend.
- * Endpoint: POST /customers
- * @param {Object} customerData - { c_name, c_email, c_phone }
- */
+
+// Create a new customer 
+// POST /customers
+// @param {Object} customerData - { c_name, c_email, c_phone }
+
 export async function createCustomer(customerData) {
     console.log("CustomerService: Creating customer", customerData);
     const response = await fetch("`${API_BASE_URL}/customers`", {
@@ -35,11 +35,11 @@ export async function createCustomer(customerData) {
     return response.json();
 }
 
-/**
- * Delete a customer by phone number.
- * Endpoint: DELETE /customers/{customer_phone}
- * @param {string} customerPhone
- */
+
+//  Delete a customer by phone number.
+//  DELETE /customers/{customer_phone}
+//  @param {string} customerPhone
+
 export async function deleteCustomer(customerPhone) {
     console.log("CustomerService: Deleting customer with phone:", customerPhone);
     const response = await fetch(`${API_BASE_URL}/customers/${customerPhone}`, {
@@ -52,12 +52,12 @@ export async function deleteCustomer(customerPhone) {
     return response.json();
 }
 
-/**
- * Update the phone number of a customer.
- * Endpoint: PUT /customers/{customer_phone}/phone
- * @param {string} customerPhone - Current phone number
- * @param {Object} data - { c_phone: newPhone }
- */
+
+//  Update the phone number of a customer.
+//  PUT /customers/{customer_phone}/phone
+//  @param {string} customerPhone - Current phone number
+//  @param {Object} data - { c_phone: newPhone }
+ 
 export async function updateCustomerPhone(customerPhone, data) {
     console.log("CustomerService: Updating customer phone from", customerPhone, "to", data.c_phone);
     const response = await fetch(`${API_BASE_URL}/customers/${customerPhone}/phone`, {
@@ -74,11 +74,11 @@ export async function updateCustomerPhone(customerPhone, data) {
     return response.json();
 }
 
-/**
- * Get all transactions performed by a specific customer.
- * Endpoint: GET /customers/{customer_id}/transactions
- * @param {number} customerId
- */
+
+//  Get all transactions performed by a specific customer.
+//  GET /customers/{customer_id}/transactions
+//  @param {number} customerId
+
 export async function getCustomerTransactions(customerId) {
     console.log("CustomerService: Fetching transactions for customer ID:", customerId);
     const response = await fetch(`${API_BASE_URL}/customers/${customerId}/transactions`);
@@ -89,15 +89,15 @@ export async function getCustomerTransactions(customerId) {
     return response.json();
 }
 
-/**
- * Filter transactions based on date, type, and min amount.
- * Endpoint: GET /transactions/filter
- * @param {Object} params - { transaction_type, start_date, end_date, min_amount }
- */
+
+//  Filter transactions based on date, type, and min amount.
+//  GET /transactions/filter
+//  @param {Object} params - { transaction_type, start_date, end_date, min_amount }
+
 export async function filterTransactions(params = {}) {
     console.log("CustomerService: Filtering transactions with params:", params);
     
-    // Construct query string manually for simplicity
+    // Constructing the query parameter
     const queryParts = [];
     if (params.transaction_type) {
         queryParts.push(`transaction_type=${encodeURIComponent(params.transaction_type)}`);
@@ -121,10 +121,10 @@ export async function filterTransactions(params = {}) {
     return response.json();
 }
 
-/**
- * Get the count of customers per branch.
- * Endpoint: GET /branches/customer-count
- */
+
+// Get the count of customers per branch.
+// GET /branches/customer-count
+
 export async function getBranchCustomerCount() {
     console.log("CustomerService: Fetching branch customer counts");
     const response = await fetch(`${API_BASE_URL}/branches/customer-count`);
