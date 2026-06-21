@@ -1,12 +1,12 @@
 import { API_BASE_URL } from "../data/config";
 
-/**
- * Fetch all customers from the backend.
- * Endpoint: GET /customers
- */
+
+// Fetch all customers 
+// GET /customers
+
 export async function getAllCustomers() {
     console.log("CustomerService: Fetching all customers");
-    const response = await fetch(`${API_BASE_URL}/customers`);
+    const response = await fetch(r);
     if (!response.ok) {
         const errorData = await response.json();
         throw new Error(errorData.detail || "Failed to fetch customers");
@@ -21,7 +21,7 @@ export async function getAllCustomers() {
  */
 export async function createCustomer(customerData) {
     console.log("CustomerService: Creating customer", customerData);
-    const response = await fetch(`${API_BASE_URL}/customers`, {
+    const response = await fetch("`${API_BASE_URL}/customers`", {
         method: "POST",
         headers: {
             "Content-Type": "application/json",
