@@ -1,0 +1,54 @@
+.tableHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 16px;
+}
+
+.tableTitle {
+  font-size: 18px;
+  font-weight: 600;
+  color: #1f1f1f;
+  margin: 0;
+}
+
+.loadBtn {
+  background: #1890ff;
+  border-color: #1890ff;
+}
+
+.loadBtn:hover {
+  background: #40a9ff;
+  border-color: #40a9ff;
+}
+
+.actionButtons {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.actionBtn {
+  font-size: 12px;
+}
+
+.modalTitle {
+  font-size: 16px;
+  font-weight: 600;
+  margin-bottom: 16px;
+}
+
+.transactionDate {
+  color: #8c8c8c;
+  font-size: 12px;
+}
+
+.amountDeposit {
+  color: #52c41a;
+  font-weight: 600;
+}
+
+.amountWithdrawal {
+  color: #f5222d;
+  font-weight: 600;
+}
